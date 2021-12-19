@@ -69,13 +69,27 @@ function Container({utensil}) {
         contextRef.current.stroke()
     }
 
+    function download(){
+        const canvas = document.getElementById("canvas");
+        const url = canvas.toDataURL("image/png");
+        const link = document.createElement('a');
+        link.download = 'paint.png';
+        link.href = url;
+        link.click();
+    }
+
     return (
-        <canvas style={magic} 
-            onMouseDown={mouseDown} 
-            onMouseUp={mouseUp} 
-            onMouseMove={draw}
-            ref={canvasRef}
-        />
+        <>
+            <canvas id="canvas" style={magic} 
+                onMouseDown={mouseDown} 
+                onMouseUp={mouseUp} 
+                onMouseMove={draw}
+                ref={canvasRef}
+            />
+            <p style={{width:"fit-content", margin:"10px auto"}}>
+                <button onClick={download}>Click here</button> to download your masterpiece.
+            </p>
+        </>
     );
 }
 

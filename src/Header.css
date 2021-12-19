@@ -2,6 +2,9 @@ body {
     margin: 0 auto;
     width: fit-content;
 }
+::selection {
+    background-color: transparent;
+}
 
 .color-icon{
      width: 20px;

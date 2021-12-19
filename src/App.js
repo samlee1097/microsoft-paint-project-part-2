@@ -23,7 +23,7 @@ function App() {
 
     return (
         <>
-            <h1>Let's Create Microsoft Paint!</h1>
+            <h1 style={{width:"fit-content", margin:"25px auto", fontSize: "35px"}}>Microsoft Paint</h1>
             <Header handleUtensil={handleUtensil} utensil={utensil}/>
             <Container utensil={utensil}/>
         </>

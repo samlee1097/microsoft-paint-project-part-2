@@ -5,7 +5,6 @@ import Brush from './Brush';
 import './Header.css'
 
 function Header({handleUtensil, utensil}) {
-
     return (
         <>
             <div id="top-page">

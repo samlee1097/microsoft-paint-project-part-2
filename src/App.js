@@ -5,7 +5,7 @@ import Container from './Container'
 function App() {
     const [utensil, SetUtensil] = useState({
         tool: "brush",
-        weight: "normal",
+        weight: 5,
         color: "black"
     })
 

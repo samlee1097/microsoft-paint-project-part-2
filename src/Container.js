@@ -2,14 +2,14 @@ import React, {useState, useRef, useEffect } from 'react'
 
 function Container({utensil}) {
     const {tool, weight, color} = utensil;
-    const [magic, SetMagic] = useState({
+    const magic = {
         width: "790px",
         height:"600px",
         backgroundColor: "white",
         border: "5px solid rgb(207, 207, 207)",
         borderStyle: "groove",
         cursor: "pointer"
-    })
+    }
 
     const canvasRef = useRef(null)
     const contextRef = useRef(null)
@@ -33,7 +33,6 @@ function Container({utensil}) {
     function mouseDown({nativeEvent}){
         if (tool === "bucket"){
             const ctx = canvasRef.current.getContext("2d")
-            console.log(ctx)
             ctx.beginPath()
             ctx.fillStyle = `${color}`
             ctx.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
@@ -43,7 +42,7 @@ function Container({utensil}) {
             contextRef.current.beginPath()
             contextRef.current.moveTo(offsetX,offsetY)
             canvasRef.current.getContext("2d").strokeStyle = color
-            canvasRef.current.getContext("2d").lineWidth = 5
+            canvasRef.current.getContext("2d").lineWidth = weight
             setIsDrawing(true)
 
         } else{

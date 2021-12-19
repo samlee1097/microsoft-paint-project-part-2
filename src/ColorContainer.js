@@ -12,12 +12,12 @@ function ColorContainer({handleUtensil, utensil}) {
         <div id="color-grid">
             {colorGrid}
         </div>
-        <span>
+        <div className='selected-box'>
             <p className="selected-color">Selected Color
-                <div className="color-icon" style={{backgroundColor:`${utensil.color}`}}>
+                <div style={{backgroundColor:`${utensil.color}`}}>
                 </div>
             </p>
-        </span>
+        </div>
         </>
     );
 }

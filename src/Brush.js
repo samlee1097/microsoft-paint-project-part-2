@@ -5,9 +5,9 @@ function Brush({handleUtensil}) {
     return (
         <>
             <select onChange={(event)=>handleUtensil(event.target.value, "weight")} id="brush-detail">
-                <option>Thin</option>
-                <option>Normal</option>
-                <option>Thick</option>
+                <option value="3">Thin</option>
+                <option value="5">Normal</option>
+                <option value="9">Thick</option>
             </select>
         </>
     );

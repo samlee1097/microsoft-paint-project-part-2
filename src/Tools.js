@@ -1,4 +1,7 @@
 import React from 'react';
+import brush from './pictures/brush.png'
+import eraser from './pictures/eraser.png'
+import bucket from './pictures/bucket.png'
 
 import './Header.css';
 
@@ -6,9 +9,9 @@ function Tools({handleUtensil}) {
 
     return (
         <div style={{backgroundColor:'lightgrey', padding:'5px', width:'140px', textAlign:"center"}}>
-            <button style={{width:"33px"}} name="brush" className="tool-icon" onClick={event=>handleUtensil(event.target.name, "tool")}><img src="https://cdn-icons-png.flaticon.com/512/588/588395.png" style={{width:"12px"}} alt="brush"/></button>
-            <button style={{width:"33px"}} name="bucket" className="tool-icon" onClick={event=>handleUtensil(event.target.name, "tool")}><img src="https://cdn-icons.flaticon.com/png/512/1959/premium/1959697.png?token=exp=1639883976~hmac=cc3120a00ea2099bb8afca4efa0ebf98" style={{width:"12px"}} alt="bucket"/></button>
-            <button style={{width:"33px"}} name="eraser" className="tool-icon" onClick={event=>handleUtensil(event.target.name, "tool")}><img src="https://cdn-icons.flaticon.com/png/512/2708/premium/2708410.png?token=exp=1639883886~hmac=38d0936af645575549708ebedd7b3fc4" style={{width:"12px"}} alt="eraser"/></button>
+            <button style={{width:"33px"}} name="brush" className="tool-icon" onClick={event=>handleUtensil(event.target.name, "tool")}><img src={brush} style={{width:"12px"}} alt="brush"/></button>
+            <button style={{width:"33px"}} name="bucket" className="tool-icon" onClick={event=>handleUtensil(event.target.name, "tool")}><img src={bucket} style={{width:"12px"}} alt="bucket"/></button>
+            <button style={{width:"33px"}} name="eraser" className="tool-icon" onClick={event=>handleUtensil(event.target.name, "tool")}><img src={eraser} style={{width:"12px"}} alt="eraser"/></button>
         </div>
     );
 }

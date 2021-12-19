@@ -1,41 +1,72 @@
-import React, {useState} from 'react'
+import React, {useState, useRef, useEffect } from 'react'
 
 function Container({utensil}) {
     const {tool, weight, color} = utensil;
-
     const [magic, SetMagic] = useState({
         width: "790px",
         height:"600px",
         backgroundColor: "white",
         border: "5px solid rgb(207, 207, 207)",
         borderStyle: "groove",
+        cursor: "pointer"
     })
 
-    const [draw, SetDraw] = useState(false)
-    
-    function handleBucket(){
-        if(tool === "bucket"){
+    const canvasRef = useRef(null)
+    const contextRef = useRef(null)
+    const [isDrawing, setIsDrawing] = useState(false)
+
+    useEffect(()=> {
+        const canvas = canvasRef.current;
+        canvas.width =1580;
+        canvas.height = 1200;
+        canvas.style.width = "790px";
+        canvas.style.height = "600px";
+
+        const context = canvas.getContext("2d")
+        context.scale(2,2)
+        context.lineCap = "round"
+        context.strokeStyle = `${color}`
+        context.lineWidth = 5
+        contextRef.current = context;
+    },[])
+
+    function mouseDown({nativeEvent}){
+        if (tool === "bucket"){
             const newItem = {
                 ...magic,
                 backgroundColor: color
             }
             SetMagic(newItem)
+
+        } else if (tool === "brush"){
+            const {offsetX, offsetY} = nativeEvent
+            contextRef.current.beginPath()
+            contextRef.current.moveTo(offsetX,offsetY)
+            setIsDrawing(true)
         }
     }
 
-    function handleMouseDown(event){
-        if(tool === "brush" && draw === true){
-            console.log(event.screenX, event.screenY)
+    function mouseUp(){
+        contextRef.current.closePath()
+        setIsDrawing(false)
+    }
+
+    function draw({nativeEvent}){
+        if(!isDrawing){
+            return
         }
+        const {offsetX, offsetY} = nativeEvent
+        contextRef.current.lineTo(offsetX,offsetY)
+        contextRef.current.stroke()
     }
 
     return (
-        <div style={magic} 
-            onMouseDown={()=>SetDraw(true)} 
-            onMouseUp={()=>SetDraw(false)} 
-            onClick={handleBucket} 
-            onMouseMove={(event)=>handleMouseDown(event)}>
-        </div>
+        <canvas style={magic} 
+            onMouseDown={mouseDown} 
+            onMouseUp={mouseUp} 
+            onMouseMove={draw}
+            ref={canvasRef}
+        />
     );
 }
 

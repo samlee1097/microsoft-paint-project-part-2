@@ -32,16 +32,26 @@ function Container({utensil}) {
 
     function mouseDown({nativeEvent}){
         if (tool === "bucket"){
-            const newItem = {
-                ...magic,
-                backgroundColor: color
-            }
-            SetMagic(newItem)
+            const ctx = canvasRef.current.getContext("2d")
+            console.log(ctx)
+            ctx.beginPath()
+            ctx.fillStyle = `${color}`
+            ctx.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
 
         } else if (tool === "brush"){
             const {offsetX, offsetY} = nativeEvent
             contextRef.current.beginPath()
             contextRef.current.moveTo(offsetX,offsetY)
+            canvasRef.current.getContext("2d").strokeStyle = color
+            canvasRef.current.getContext("2d").lineWidth = 5
+            setIsDrawing(true)
+
+        } else{
+            const {offsetX, offsetY} = nativeEvent
+            contextRef.current.beginPath()
+            contextRef.current.moveTo(offsetX,offsetY)
+            canvasRef.current.getContext("2d").strokeStyle = "white"
+            canvasRef.current.getContext("2d").lineWidth = 10
             setIsDrawing(true)
         }
     }

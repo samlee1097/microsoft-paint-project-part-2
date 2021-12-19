@@ -4,7 +4,7 @@ import ColorContainer from './ColorContainer';
 import Brush from './Brush';
 import './Header.css'
 
-function Header({handleUtensil}) {
+function Header({handleUtensil, utensil}) {
 
     return (
         <>
@@ -15,7 +15,7 @@ function Header({handleUtensil}) {
             <div id="header">
                 <Tools handleUtensil={handleUtensil}/>
                 <Brush handleUtensil={handleUtensil}/>
-                <ColorContainer handleUtensil={handleUtensil}/>
+                <ColorContainer handleUtensil={handleUtensil} utensil={utensil}/>
             </div>
         </>
     );

@@ -24,7 +24,7 @@ function App() {
     return (
         <>
             <h1>Let's Create Microsoft Paint!</h1>
-            <Header handleUtensil={handleUtensil}/>
+            <Header handleUtensil={handleUtensil} utensil={utensil}/>
             <Container utensil={utensil}/>
         </>
     );

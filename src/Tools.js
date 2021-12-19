@@ -1,5 +1,5 @@
 import React from 'react';
-import brush from './pictures/brush.png'
+import brush from './pictures/pencil.png'
 import eraser from './pictures/eraser.png'
 import bucket from './pictures/bucket.png'
 

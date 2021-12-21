@@ -11,22 +11,14 @@ function App() {
 
     function handleUtensil(updateItem, keyHolder){
         const newUtensil={...utensil}
-        if (keyHolder === "color" && updateItem === "brush"){
-            newUtensil[keyHolder] = updateItem.toLowerCase()
-            SetUtensil(()=>newUtensil)
-            console.log(newUtensil)
-        } else {
             if(updateItem === "eraser"){
                 newUtensil["color"] = "white";
                 newUtensil["tool"] = "eraser";
                 SetUtensil(()=>newUtensil)
-                console.log(newUtensil)
             } else {
                 newUtensil[keyHolder] = updateItem.toLowerCase()
                 SetUtensil(()=>newUtensil)
-                console.log(newUtensil)
             }
-        }
     }
 
     return (

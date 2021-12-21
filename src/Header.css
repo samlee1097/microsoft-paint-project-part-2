@@ -1,7 +1,10 @@
-body {
-    margin: 0 auto;
+.container{
+    margin: 3% auto;
     width: fit-content;
+    height: fit-content;
+    position: relative;
 }
+
 ::selection {
     background-color: transparent;
 }

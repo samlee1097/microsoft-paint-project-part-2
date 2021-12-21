@@ -22,7 +22,7 @@ function ColorContainer({handleUtensil, utensil}) {
                 </div>
             </p>
             <p className="selected-tool">Tool
-                <img src={utensil.tool === "brush" ? brush : utensil.tool === "eraser" ? eraser : bucket} style={{width:"12px", margin:"0 2px"}} alt="brush"/>
+                <img src={utensil.tool === "brush" ? brush : utensil.tool === "eraser" ? eraser : bucket} style={{width:"20px", margin:"0 0 0 9px"}} alt="brush"/>
             </p>
         </div>
         </>
